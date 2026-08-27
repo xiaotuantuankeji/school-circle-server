@@ -1,0 +1,184 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel="icon" href="/schoolAdmin/favicon.ico"><title>团团校园管理系统</title><!--[if lt IE 11]><script>window.location.href='html/ie.html';</script><![endif]--><style>html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    .chromeframe {
+      margin: 0.2em 0;
+      background: #ccc;
+      color: #000;
+      padding: 0.2em 0;
+    }
+
+    #loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999999;
+    }
+
+    #loader {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -webkit-animation: spin 2s linear infinite;
+      -ms-animation: spin 2s linear infinite;
+      -moz-animation: spin 2s linear infinite;
+      -o-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      z-index: 1001;
+    }
+
+    #loader:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -webkit-animation: spin 3s linear infinite;
+      -moz-animation: spin 3s linear infinite;
+      -o-animation: spin 3s linear infinite;
+      -ms-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite;
+    }
+
+    #loader:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -moz-animation: spin 1.5s linear infinite;
+      -o-animation: spin 1.5s linear infinite;
+      -ms-animation: spin 1.5s linear infinite;
+      -webkit-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite;
+    }
+
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+
+    #loader-wrapper .loader-section {
+      position: fixed;
+      top: 0;
+      width: 51%;
+      height: 100%;
+      background: #7171C6;
+      z-index: 1000;
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+    #loader-wrapper .loader-section.section-left {
+      left: 0;
+    }
+
+    #loader-wrapper .loader-section.section-right {
+      right: 0;
+    }
+
+
+    .loaded #loader-wrapper .loader-section.section-left {
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      transform: translateX(-100%);
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader-wrapper .loader-section.section-right {
+      -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      transform: translateX(100%);
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader {
+      opacity: 0;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .loaded #loader-wrapper {
+      visibility: hidden;
+      -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      transform: translateY(-100%);
+      -webkit-transition: all 0.3s 1s ease-out;
+      transition: all 0.3s 1s ease-out;
+    }
+
+    .no-js #loader-wrapper {
+      display: none;
+    }
+
+    .no-js h1 {
+      color: #222222;
+    }
+
+    #loader-wrapper .load_title {
+      font-family: 'Open Sans';
+      color: #FFF;
+      font-size: 19px;
+      width: 100%;
+      text-align: center;
+      z-index: 9999999999999;
+      position: absolute;
+      top: 60%;
+      opacity: 1;
+      line-height: 30px;
+    }
+
+    #loader-wrapper .load_title span {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 13px;
+      color: #FFF;
+      opacity: 0.5;
+    }</style><link href="/schoolAdmin/static/css/chunk-libs.763ea62a.css" rel="stylesheet"><link href="/schoolAdmin/static/css/app.ee51f0d2.css" rel="stylesheet"></head><body><div id="app"><div id="loader-wrapper"><div id="loader"></div><div class="loader-section section-left"></div><div class="loader-section section-right"></div><div class="load_title">正在加载系统资源，请耐心等待</div></div></div><script>(function(e){function c(c){for(var u,t,h=c[0],d=c[1],o=c[2],f=0,k=[];f<h.length;f++)t=h[f],Object.prototype.hasOwnProperty.call(r,t)&&r[t]&&k.push(r[t][0]),r[t]=0;for(u in d)Object.prototype.hasOwnProperty.call(d,u)&&(e[u]=d[u]);b&&b(c);while(k.length)k.shift()();return a.push.apply(a,o||[]),n()}function n(){for(var e,c=0;c<a.length;c++){for(var n=a[c],u=!0,t=1;t<n.length;t++){var h=n[t];0!==r[h]&&(u=!1)}u&&(a.splice(c--,1),e=d(d.s=n[0]))}return e}var u={},t={runtime:0},r={runtime:0},a=[];function h(e){return d.p+"static/js/"+({"chunk-commons":"chunk-commons"}[e]||e)+"."+{"chunk-1d41d077":"d9039d2c","chunk-1ecf3f25":"339a1a0e","chunk-2439e19e":"31b6ce73","chunk-284602ee":"0bc3bb03","chunk-2d0e2366":"b6a19fa3","chunk-6781d1eb":"5d559202","chunk-2d21f097":"8808c527","chunk-6e8177a2":"0e0c4351","chunk-36d77fbc":"7db39f58","chunk-449a88a6":"d6e05a2e","chunk-4940cfc3":"2238e9dc","chunk-57c7bd1b":"298b1f19","chunk-2d212b99":"2e7150e3","chunk-7cae28c3":"af2c2bc7","chunk-61a2f45e":"17b5422b","chunk-7303bed6":"26f362f6","chunk-78e3972b":"46ce2be7","chunk-67927b11":"7c86aa05","chunk-89acbeb2":"642362a2","chunk-a566624c":"0266f9bb","chunk-commons":"42b9c3fc","chunk-0d01f8ec":"ead6e085","chunk-5617c410":"c2c8b885","chunk-3c799434":"46d34033","chunk-3e4eb1f2":"fb475f52","chunk-6442bea2":"df5bda89","chunk-62776a3d":"83dc3319","chunk-96d7e37e":"69f9a5b4","chunk-12dc8ee5":"9d6467e8","chunk-24039b60":"5ee56856","chunk-9f472566":"f7932553","chunk-becce3d8":"a033c865","chunk-042946bb":"722d94e0","chunk-d8ee7082":"4319a136","chunk-678d9e99":"38113e97"}[e]+".js"}function d(c){if(u[c])return u[c].exports;var n=u[c]={i:c,l:!1,exports:{}};return e[c].call(n.exports,n,n.exports,d),n.l=!0,n.exports}d.e=function(e){var c=[],n={"chunk-1ecf3f25":1,"chunk-2439e19e":1,"chunk-284602ee":1,"chunk-6781d1eb":1,"chunk-6e8177a2":1,"chunk-57c7bd1b":1,"chunk-61a2f45e":1,"chunk-67927b11":1,"chunk-commons":1,"chunk-5617c410":1,"chunk-3c799434":1,"chunk-3e4eb1f2":1,"chunk-6442bea2":1,"chunk-62776a3d":1,"chunk-12dc8ee5":1,"chunk-24039b60":1,"chunk-9f472566":1,"chunk-becce3d8":1,"chunk-042946bb":1,"chunk-d8ee7082":1,"chunk-678d9e99":1};t[e]?c.push(t[e]):0!==t[e]&&n[e]&&c.push(t[e]=new Promise((function(c,n){for(var u="static/css/"+({"chunk-commons":"chunk-commons"}[e]||e)+"."+{"chunk-1d41d077":"31d6cfe0","chunk-1ecf3f25":"bbc9fa95","chunk-2439e19e":"917ede6c","chunk-284602ee":"ce9a8b36","chunk-2d0e2366":"31d6cfe0","chunk-6781d1eb":"8c787fa0","chunk-2d21f097":"31d6cfe0","chunk-6e8177a2":"d2fc280b","chunk-36d77fbc":"31d6cfe0","chunk-449a88a6":"31d6cfe0","chunk-4940cfc3":"31d6cfe0","chunk-57c7bd1b":"84f98409","chunk-2d212b99":"31d6cfe0","chunk-7cae28c3":"31d6cfe0","chunk-61a2f45e":"7f18c544","chunk-7303bed6":"31d6cfe0","chunk-78e3972b":"31d6cfe0","chunk-67927b11":"034e55b1","chunk-89acbeb2":"31d6cfe0","chunk-a566624c":"31d6cfe0","chunk-commons":"2f6edd1f","chunk-0d01f8ec":"31d6cfe0","chunk-5617c410":"ca06fefe","chunk-3c799434":"5c7d2cd9","chunk-3e4eb1f2":"5c7d2cd9","chunk-6442bea2":"6ba99645","chunk-62776a3d":"f246bb19","chunk-96d7e37e":"31d6cfe0","chunk-12dc8ee5":"cade7330","chunk-24039b60":"369ea202","chunk-9f472566":"bfdaa15d","chunk-becce3d8":"a48a7cc1","chunk-042946bb":"ec7c930c","chunk-d8ee7082":"6fad9d09","chunk-678d9e99":"0388567b"}[e]+".css",r=d.p+u,a=document.getElementsByTagName("link"),h=0;h<a.length;h++){var o=a[h],f=o.getAttribute("data-href")||o.getAttribute("href");if("stylesheet"===o.rel&&(f===u||f===r))return c()}var k=document.getElementsByTagName("style");for(h=0;h<k.length;h++){o=k[h],f=o.getAttribute("data-href");if(f===u||f===r)return c()}var b=document.createElement("link");b.rel="stylesheet",b.type="text/css",b.onload=c,b.onerror=function(c){var u=c&&c.target&&c.target.src||r,a=new Error("Loading CSS chunk "+e+" failed.\n("+u+")");a.code="CSS_CHUNK_LOAD_FAILED",a.request=u,delete t[e],b.parentNode.removeChild(b),n(a)},b.href=r;var i=document.getElementsByTagName("head")[0];i.appendChild(b)})).then((function(){t[e]=0})));var u=r[e];if(0!==u)if(u)c.push(u[2]);else{var a=new Promise((function(c,n){u=r[e]=[c,n]}));c.push(u[2]=a);var o,f=document.createElement("script");f.charset="utf-8",f.timeout=120,d.nc&&f.setAttribute("nonce",d.nc),f.src=h(e);var k=new Error;o=function(c){f.onerror=f.onload=null,clearTimeout(b);var n=r[e];if(0!==n){if(n){var u=c&&("load"===c.type?"missing":c.type),t=c&&c.target&&c.target.src;k.message="Loading chunk "+e+" failed.\n("+u+": "+t+")",k.name="ChunkLoadError",k.type=u,k.request=t,n[1](k)}r[e]=void 0}};var b=setTimeout((function(){o({type:"timeout",target:f})}),12e4);f.onerror=f.onload=o,document.head.appendChild(f)}return Promise.all(c)},d.m=e,d.c=u,d.d=function(e,c,n){d.o(e,c)||Object.defineProperty(e,c,{enumerable:!0,get:n})},d.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},d.t=function(e,c){if(1&c&&(e=d(e)),8&c)return e;if(4&c&&"object"===typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(d.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&c&&"string"!=typeof e)for(var u in e)d.d(n,u,function(c){return e[c]}.bind(null,u));return n},d.n=function(e){var c=e&&e.__esModule?function(){return e["default"]}:function(){return e};return d.d(c,"a",c),c},d.o=function(e,c){return Object.prototype.hasOwnProperty.call(e,c)},d.p="/schoolAdmin/",d.oe=function(e){throw console.error(e),e};var o=window["webpackJsonp"]=window["webpackJsonp"]||[],f=o.push.bind(o);o.push=c,o=o.slice();for(var k=0;k<o.length;k++)c(o[k]);var b=f;n()})([]);</script><script src="/schoolAdmin/static/js/chunk-elementUI.c90b68a0.js"></script><script src="/schoolAdmin/static/js/chunk-libs.a570b4c1.js"></script><script src="/schoolAdmin/static/js/app.6b81854d.js"></script></body></html>
