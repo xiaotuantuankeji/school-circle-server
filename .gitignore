@@ -1,0 +1,10 @@
+# 后端服务 Jar 包（141MB，超 Gitee 单文件 100MB 限制，不入库）
+# 仓库仅保留分卷压缩包：yudao-server.jar.zip + yudao-server.jar.z01
+yudao-server.jar
+
+# 日志
+*.log
+nohup.out
+
+# 系统文件
+.DS_Store

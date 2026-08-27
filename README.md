@@ -6,10 +6,25 @@
 
 | 文件/目录 | 说明 |
 | --- | --- |
-| `yudao-server.jar` | 后端服务 Jar 包（Spring Boot 2.7.18，JDK 8 构建） |
+| `yudao-server.jar.zip`、`yudao-server.jar.z01` | 后端服务 Jar 的分卷压缩包（Spring Boot 2.7.18，JDK 8 构建）。原始 Jar 约 141MB，超过 Gitee 单文件 100MB 限制，故以分卷形式存放，下载后需先合并还原（见下方「部署前准备」） |
 | `school_circle.sql` | 数据库初始化脚本（含全部表结构与初始化数据） |
 | `deploy.sh` | 一键启动后端服务脚本（备份 → 停止 → 部署 → 启动 → 健康检查） |
 | `schoolAdmin/` | 后端服务管理页面（团团校园管理系统前端静态资源） |
+
+## 部署前准备：还原 Jar 包
+
+仓库不直接存放 `yudao-server.jar`（单文件超 100MB 无法上传 Gitee），请将 `yudao-server.jar.zip` 与 `yudao-server.jar.z01` 下载到同一目录后还原：
+
+**Windows（推荐）**：用 7-Zip / WinRAR 直接解压 `yudao-server.jar.zip`，工具会自动读取分卷 `.z01`，得到完整 `yudao-server.jar`。
+
+**macOS / Linux**：先合并分卷为单个 zip，再解压：
+
+```bash
+zip -s 0 yudao-server.jar.zip --out yudao-server-full.zip
+unzip yudao-server-full.zip
+```
+
+> 还原后可删除 `yudao-server-full.zip`，仅保留 `yudao-server.jar` 用于部署。
 
 ## 二、环境要求
 
@@ -173,6 +188,7 @@ sudo bash deploy.sh
 | 端口 48080 被占用 | 修改占用进程或更换端口（修改 Jar 内 `application-prod.yaml` 的 `server.port` 需重新打包） |
 | 管理页面无法登录 | 确认后端已启动，且访问机器能连通 `127.0.0.1:48080` |
 | deploy.sh 健康检查不通过 | 查看 `nohup.out` 日志，重点检查数据库 / Redis 连接配置 |
+| 找不到 `yudao-server.jar` | 仓库内为大文件分卷，按「部署前准备」合并还原后再部署 |
 
 ## 六、在线演示
 
