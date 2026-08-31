@@ -7,7 +7,9 @@
 
 **English:** [README_EN.md](README_EN.md)
 
-**校园社交 / 校园社区系统的后端服务部署包**，基于 Spring Boot 2.7 构建，包含后端服务 Jar、管理页面、数据库初始化脚本与一键启动脚本，开箱即用，配套 [校园社区微信小程序前端](https://github.com/xiaotuantuankeji/school-circle-mini)（Gitee 镜像：[school-circle-mini](https://gitee.com/nanjing-xiaotuantuan-group/school-circle-mini)）。
+**校园社交 / 校园社区系统的后端服务部署包**，面向**校园**（高校）场景，基于 Spring Boot 2.7 构建，包含后端服务 Jar、管理页面、数据库初始化脚本与一键启动脚本，开箱即用，配套 [校园社区微信小程序前端](https://github.com/xiaotuantuankeji/school-circle-mini)（Gitee 镜像：[school-circle-mini](https://gitee.com/nanjing-xiaotuantuan-group/school-circle-mini)）。
+
+> **关键词：** 校园 · 校园社交 · 校园社区 · 校园论坛 · 校园动态 · 校园圈子 · 课程表 · 高校社交 · 大学生社交 · 校园微信小程序 · Spring Boot 后端部署包
 
 ## 功能简介
 

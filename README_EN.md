@@ -6,6 +6,8 @@
 
 **Backend service deployment package for a campus social network / campus community system.** Built with Spring Boot 2.7, this repo ships the server JAR, admin web UI, database initialization scripts and a one-click deployment script — ready to run out of the box. Pairs with the [campus mini-program frontend](https://github.com/xiaotuantuankeji/school-circle-mini).
 
+> **Keywords:** campus social, school circle, campus community, school forum, university, college, student community, wechat mini-program, Spring Boot backend
+
 ## Features
 
 - RESTful APIs for campus feeds, campus circles, course schedules, playmate matching and more
