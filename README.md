@@ -1,6 +1,38 @@
-# 团团校园后端服务（school-circle-server）
+# 团团校园后端服务（School Circle Server）
 
-团团校园项目的后端服务部署包，包含后端服务 Jar、管理页面、数据库初始化脚本与一键启动脚本。
+![license](https://img.shields.io/badge/license-Apache%202.0-blue)
+![java](https://img.shields.io/badge/Java-8-orange)
+![springboot](https://img.shields.io/badge/Spring%20Boot-2.7.18-brightgreen)
+![mysql](https://img.shields.io/badge/MySQL-5.7%2F8.0-blue)
+
+**English:** [README_EN.md](README_EN.md)
+
+**校园社交 / 校园社区系统的后端服务部署包**，基于 Spring Boot 2.7 构建，包含后端服务 Jar、管理页面、数据库初始化脚本与一键启动脚本，开箱即用，配套 [校园社区微信小程序前端](https://github.com/xiaotuantuankeji/school-circle-mini)（Gitee 镜像：[school-circle-mini](https://gitee.com/nanjing-xiaotuantuan-group/school-circle-mini)）。
+
+## 功能简介
+
+- 🏫 **校园社区后端 API**：为校园动态、校园圈子、课程表、玩伴匹配等业务提供完整 RESTful API
+- 🛠️ **管理后台（schoolAdmin）**：内置可视化校园管理系统，支持用户、内容、认证审核等管理
+- 🗄️ **数据库脚本**：含全部表结构与初始化数据，一键导入即用
+- 🚀 **一键部署**：`deploy.sh` 自动完成备份 → 停止 → 部署 → 启动 → 健康检查
+- 🔌 **技术栈**：Spring Boot 2.7.18 / MySQL / Redis / Nginx
+
+## 技术栈
+
+| 分类 | 技术 |
+|------|------|
+| 框架 | Spring Boot 2.7.18（JDK 8 构建） |
+| 数据库 | MySQL 5.7 / 8.0 |
+| 缓存 | Redis 5.0+ |
+| 部署 | Nginx（可选，托管管理页面） |
+| 接口文档 | Swagger UI（`/swagger-ui`） |
+
+## 在线演示
+
+| 项目 | 说明 |
+|------|------|
+| 管理平台演示 | `https://ky.xiaotuantuan.com.cn/schoolAdmin/`（账号 `demoAdmin` / 密码 `demo@2026`） |
+| 小程序 H5 演示 | `https://ky.xiaotuantuan.com.cn/schoolWeb/`（自行注册） |
 
 ## 一、目录结构
 
@@ -190,24 +222,12 @@ sudo bash deploy.sh
 | deploy.sh 健康检查不通过 | 查看 `nohup.out` 日志，重点检查数据库 / Redis 连接配置 |
 | 找不到 `yudao-server.jar` | 仓库内为大文件分卷，按「部署前准备」合并还原后再部署 |
 
-## 六、在线演示
+## 相关仓库
 
-### 管理平台
+- 后端（本仓库）：[school-circle-server](https://github.com/xiaotuantuankeji/school-circle-server)
+- 前端：[school-circle-mini](https://github.com/xiaotuantuankeji/school-circle-mini)（Gitee：[镜像](https://gitee.com/nanjing-xiaotuantuan-group/school-circle-mini)）
 
-| 项目 | 说明 |
-|------|------|
-| 演示地址 | `https://ky.xiaotuantuan.com.cn/schoolAdmin/` |
-| 演示账号 | `demoAdmin` |
-| 演示密码 | `demo@2026` |
-
-### 小程序 H5
-
-| 项目 | 说明 |
-|------|------|
-| 演示地址 | `https://ky.xiaotuantuan.com.cn/schoolWeb/` |
-| 演示账号 | 自行注册 |
-
-## 七、商用联系
+## 商用联系
 
 QQ群：1087277252
 
